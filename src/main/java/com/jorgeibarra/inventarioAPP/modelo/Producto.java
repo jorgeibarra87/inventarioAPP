@@ -1,11 +1,15 @@
 package com.jorgeibarra.inventarioAPP.modelo;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.relational.core.mapping.Table;
+
 /**
  *
  * @author Jorge Ibarra
  */
+@Table("Productos")
 public class Producto {
-    
+    @Id
     private Integer codigo;
     private String nombre;
     private double precio;
@@ -50,6 +54,12 @@ public class Producto {
     public void setInventario(Integer inventario) {
         this.inventario = inventario;
     }
+
+    @Override
+    public String toString() {
+        return "Producto{" + "codigo=" + codigo + ", nombre=" + nombre + ", precio=" + precio + ", inventario=" + inventario + '}';
+    }
+    
     
     
 }
