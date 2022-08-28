@@ -17,10 +17,10 @@ import org.springframework.context.annotation.Bean;
 public class InventarioAppApplication {
     
     @Autowired
-    ProductoRepositorio productoRepositorio;
+    ProductoRepositorio repositorio;
 
 	public static void main(String[] args) {
-		SpringApplicationBuilder builder = new SpringApplicationBuilder(InventarioAppApplication.class);
+	SpringApplicationBuilder builder = new SpringApplicationBuilder(InventarioAppApplication.class);
         builder.headless(false);
         ConfigurableApplicationContext context = builder.run(args);
 	}
@@ -32,8 +32,8 @@ public class InventarioAppApplication {
              * Incluir código definitivo aqui 
              */
             VentanaProducto ventana = new VentanaProducto();
-            ProductoControlador controlador = new ProductoControlador(ventana, productoRepositorio);
-            List<Producto> listadoProductos = (List<Producto>) productoRepositorio.findAll();
+            ProductoControlador controlador = new ProductoControlador(ventana, repositorio);
+            List<Producto> listadoProductos = (List<Producto>) repositorio.findAll();
             controlador.getVista().asigarModelo(listadoProductos);
 
         };
